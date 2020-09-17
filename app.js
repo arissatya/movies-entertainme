@@ -2,7 +2,7 @@ if (process.env.NODE_ENV === "development") {
   require("dotenv").config();
 }
 
-require("dotenv").config();
+// require("dotenv").config();
 const { MongoClient } = require("mongodb");
 const { ObjectId } = require("mongodb");
 const express = require("express");
@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-const uri = "mongodb+srv://arissatya:arissatya@cluster0.ufurf.mongodb.net/movies?retryWrites=true&w=majority";
+const uri = process.env.DB_ATLAS;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
