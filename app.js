@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-const uri = process.env.DB_ATLAS;
+const uri = "mongodb+srv://arissatya:arissatya@cluster0.ufurf.mongodb.net/movies?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
