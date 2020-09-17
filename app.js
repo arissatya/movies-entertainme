@@ -2,6 +2,7 @@ if (process.env.NODE_ENV === "development") {
   require("dotenv").config();
 }
 
+require("dotenv").config();
 const { MongoClient } = require("mongodb");
 const { ObjectId } = require("mongodb");
 const express = require("express");
@@ -96,4 +97,3 @@ client.connect((err) => {
       });
   });
 });
-
