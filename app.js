@@ -1,6 +1,7 @@
 if (process.env.NODE_ENV === "development") {
   require("dotenv").config();
 }
+
 const { MongoClient } = require("mongodb");
 const { ObjectId } = require("mongodb");
 const express = require("express");
@@ -14,6 +15,11 @@ const uri = process.env.DB_ATLAS;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+});
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log("MOVIES SERVER CONNECT " + PORT);
 });
 
 client.connect((err) => {
@@ -91,7 +97,3 @@ client.connect((err) => {
   });
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log("MOVIES SERVER CONNECT " + PORT);
-});
